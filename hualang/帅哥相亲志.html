@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>帅哥相亲志</title>
+	<style type="text/css">
+	 *{padding:0; margin:0;}
+        body{
+        	background-color: #fff;
+        	color:#555;
+        	font-family: "Avenir Next";
+        	font-size: 14px;
+        	-webkit-font-smoothing:antialiase;/*会让字体圆滑一点*/
+        }
+        .wrap{
+        	width:800px;
+        	height:600px;
+        	top:50%;
+        	margin-top: -300px;
+        	margin:20px auto;
+        	background-color: #333;
+        	overflow: hidden;
+        	-webkit-perspective:800px;
+        }
+        /*海报样式*/
+        .photo {
+        	width: 220px;
+        	height: 280px;
+        	position: absolute;
+        	z-index: 1;
+        	box-shadow: 0 0 2px rgba(0,0,0,0.1);
+        }
+        .wrap .photo1{
+        	top:10px;
+        	left:125px;
+        }
+        .wrap .photo2{
+        	top:10px;
+        	right:125px;
+        }
+         .wrap .photo3{
+        	bottom:10px;
+        	left:125px;
+        }
+        .wrap .photo4{
+        	bottom:10px;
+        	right:125px;
+        }
+        .photo .side{
+        	width: 220px;
+        	height: 280px;
+        	background-color: #eee;
+            position:absolute;
+            top:0;
+            right:0;
+        }
+        .photo .side-front .image{
+        	width: 200px;
+        	height: 220px;
+        	line-height: 220px;
+        	overflow: hidden;
+            padding-left:10px;
+            padding-top: 10px;
+        }
+        .photo .side-front{}
+        .photo .side-front .image img{
+        	width:100%;
+        	height:100%;
+
+        }
+        .photo .side-front .caption{
+        	height: 60px;
+        	line-height: 60px;
+        	text-align: center;
+        }
+        .photo .side-back{}
+        .photo .side-back .desc{
+        	color:#666;
+        	font-size: 14px;
+        	line-height: 1.5em;
+        }
+        /*负责翻转*/
+        .photo-wrap{
+        	position: absolute;
+        	width: 100%;
+        	height: 100%;
+        	-webkit-transition:all .6s;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transform-origin:0% 50%;
+        }
+        .photo-wrap .side-front{
+           -webkit-transform:rotateY(0deg);
+        }
+         .photo-wrap .side-back{
+           -webkit-transform:rotateY(180deg);
+        }
+        .photo-wrap .side{
+        	-webkit-backface-visibility:hidden;
+        }
+        .photo-front .photo-wrap{
+        	-webkit-transform:translate(0,0) rotateY(0deg);
+        }
+        .photo-back .photo-wrap{
+        	-webkit-transform:translate(220px,0) rotateY(180deg);
+        }
+
+	</style>
+	<script type="text/javascript">
+          function turn(elem){
+          	var cls = elem.className;
+          	if(/photo-front/.test(cls)){
+          		cls = cls.replace(/photo-front/,"photo-back");
+          	}else{
+          		cls = cls.replace(/photo-back/,"photo-front");
+          	}
+          	return elem.className=cls;
+          }
+    </script>
+</head>
+<body>
+  <div class="wrap">
+  	 <div class="photo photo-front photo1" onclick="turn(this)">
+  	 	<div class="photo-wrap">
+  	 		<div class="side side-front">
+  	 			<p class="image"><img src="boyang.jpg"></p>
+  	 			<p class="caption">高大衰的董博洋</p>
+  	 		</div>
+  	 		<div class="side side-back">
+  	 			<p class="desc">身高一米八几</br></br>目前还是一个单身狗<br/></br>性格内向，整天宅在宿舍，没有美女吸引他决不踏出宿舍半步</br><br/>性格爱好：喜欢打机，打到天昏地暗。</p>
+  	 		</div>
+  	 	</div>
+  	 </div>
+
+  	 <div class="photo photo-front photo2" onclick="turn(this)">
+  	 	<div class="photo-wrap">
+  	 		<div class="side side-front">
+  	 			<p class="image"><img src="junlin.jpg"></p>
+  	 			<p class="caption">13班草陆俊霖</p>
+  	 		</div>
+  	 		<div class="side side-back">
+  	 			<p class="desc">身高一米七到一米八左右<br/><br/>目前不清楚是不是单身，有意者请联系*****<br/><br/>性格活跃，热爱工作，甚至连课都逃了去拉外联，性格可见一般<br/><br/>爱好：足球就是他的命根子，他的命根子不是足球哦~</p>
+  	 		</div>
+  	 	</div>
+  	 </div>
+
+  	 <div class="photo photo-front photo3" onclick="turn(this)">
+  	 	<div class="photo-wrap">
+  	 		<div class="side side-front">
+  	 			<p class="image"><img src="fuzhao.jpg"></p>
+  	 			<p class="caption">人见人爱李福招</p>
+  	 		</div>
+  	 		<div class="side side-back">
+  	 			<p class="desc">身高一米七到一米八左右<br/><br/>目前是单身狗<br/><br/>性格活跃可爱，可谓人见人爱，车见车载呀！<br/><br/>爱好：篮球是他的最爱，无篮球无福招</p>
+  	 		</div>
+  	 	</div>
+  	 </div>
+
+  	 <div class="photo photo-front photo4" onclick="turn(this)">
+  	 	<div class="photo-wrap">
+  	 		<div class="side side-front">
+  	 			<p class="image"><img src="think.jpg"></p>
+  	 			<p class="caption">你好浴盆</p>
+  	 		</div>
+  	 		<div class="side side-back">
+  	 			<p class="desc">详细信息</p>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </div>>
+</body>
+</html>
